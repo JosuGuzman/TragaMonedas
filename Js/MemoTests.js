@@ -25,17 +25,16 @@ function CountingTime(){
         if(Tim == 0){
             clearInterval(RegressiveTime);
             BlockCard();
-            Timer = false;
-            UncoveredCards = 0;
         }
     }, 1000)
 }
 
 function BlockCard(){
-    for(let i = 0; i < numbers.length; i++){
-        let CardBlock = document.getElementById(i);
+    for(let i = 0; i <= 15; i++){
+        let CardBlock = document.getElementById(1);
         CardBlock.innerHTML = numbers[i];
         CardBlock.disabled = true;
+
     }
 }
 
