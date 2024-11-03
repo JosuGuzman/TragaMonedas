@@ -6,138 +6,139 @@ const TIEMPO_DEL_JUEGO = 60;
 const bd_juego = [
     {
         id: 'A',
-        pregunta: "Bestia mitológica que es un ser con cuerpo de hombre y cabeza de caballo.",
-        respuesta: "centauro"
+        pregunta: "Con la A: Criatura con rostro de mujer y cuerpo de ave, que acecha desde el cielo sin miedo y sin clave.",
+        respuesta: "arpia"
     },
     {
         id: 'B',
-        pregunta: "Bestia mitológica que es un ser con cuerpo de cabra y cola de pez.",
-        respuesta: "bicorne"
+        pregunta: "Con la B: Con su mirada mortal, convierte en piedra a quien desafía; su aliento es veneno en cada mordida.",
+        respuesta: "basilisco"
     },
     {
         id: 'C',
-        pregunta: "Bestia mitológica que es un dragón que guarda tesoros.",
-        respuesta: "dragón"
+        pregunta: "Con la C: Monstruo marino gigante que amenaza con su furia y en el agua se oculta sin prisa.",
+        respuesta: "ceto"
     },
     {
         id: 'D',
-        pregunta: "Bestia mitológica que tiene la capacidad de transformarse en lobo.",
-        respuesta: "hombre lobo"
+        pregunta: "Con la D: Ser de fuego y alas de terror, su aliento es llamas y su vuelo, temor.",
+        respuesta: "dragon"
     },
     {
         id: 'E',
-        pregunta: "Bestia mitológica que es un ave de fuego que renace de sus cenizas.",
-        respuesta: "fénix"
+        pregunta: "Con la E: Guarda secretos y enigmas sin igual, si no aciertas su pregunta, te hace mal.",
+        respuesta: "esfinge"
     },
     {
         id: 'F',
-        pregunta: "Bestia mitológica que es un gigante de hielo.",
-        respuesta: "golem"
+        pregunta: "Con la F: Lobo descomunal que desafía a los dioses y ruge por libertad.",
+        respuesta: "fenrir"
     },
     {
         id: 'G',
-        pregunta: "Bestia mitológica que es un ser humano con cuernos.",
-        respuesta: "minotauro"
+        pregunta: "Con la G: Criatura mitad águila y mitad león, guardiana de tesoros y símbolo de fuerza.",
+        respuesta: "grifo"
     },
     {
         id: 'H',
-        pregunta: "Bestia mitológica que es un pez con alas.",
-        respuesta: "sirena"
+        pregunta: "Con la H: Criatura nacida de águila y corcel, con fuerza y majestuosidad vuela por doquier.",
+        respuesta: "hipogrifo"
     },
     {
         id: 'I',
-        pregunta: "Bestia mitológica que es un monstruo marino con forma de serpiente.",
-        respuesta: "kraken"
+        pregunta: "Con la I: Ser de fuego y humo que se alza en el desierto, a quien no domina nada de este mundo.",
+        respuesta: "ifrit"
     },
     {
         id: 'J',
-        pregunta: "Bestia mitológica que es un caballo alado.",
-        respuesta: "pegaso"
+        pregunta: "Con la J: Espíritu del viento o del fuego, te concede deseos, pero a cambio de juego.",
+        respuesta: "jinn"
     },
     {
         id: 'K',
-        pregunta: "Bestia mitológica que es un ser que puede volar y tiene un cuerno en la frente.",
-        respuesta: "unicornio"
+        pregunta: "Con la K: Monstruo marino con forma de pulpo gigante, capaz de destruir embarcaciones.",
+        respuesta: "kraken"
     },
     {
         id: 'L',
-        pregunta: "Bestia mitológica que es un ser que puede cambiar de forma y es conocido por su astucia.",
+        pregunta: "Con la L: Criatura que toma la forma de un lobo bajo la luna llena.",
         respuesta: "licántropo"
     },
     {
         id: 'M',
-        pregunta: "Bestia mitológica que es un ser con cuerpo de león y cabeza de águila.",
-        respuesta: "grifos"
+        pregunta: "Con la M: Ser mitológico de cuerpo de león y cola de escorpión, que habita en desiertos.",
+        respuesta: "mantícora"
     },
     {
         id: 'N',
-        pregunta: "Bestia mitológica que es un ser que vive en el agua y tiene forma de serpiente.",
+        pregunta: "Con la N: Ser serpentino, guardián de secretos, desliza entre templos y símbolos eternos.",
         respuesta: "naga"
     },
     {
         id: 'O',
-        pregunta: "Bestia mitológica que es un ser que puede volar y es conocido por su belleza.",
+        pregunta: "Con la O: Ninfas de los lagos y ríos, de aspecto encantador, que ayuda a los navegantes.",
         respuesta: "ondina"
     },
     {
         id: 'P',
-        pregunta: "Bestia mitológica que es un ser que puede volar y tiene plumas de colores.",
-        respuesta: "fénix"
+        pregunta: "Con la P: Ser alado mitad humano y mitad Dragón que aterraba a las tribus; entre nubes y bosques, su vuelo era castigo.",
+        respuesta: "piasa"
     },
     {
         id: 'Q',
-        pregunta: "Bestia mitológica que es un ser que vive en el agua y tiene forma de pez.",
+        pregunta: "Con la Q: Ser feroz de con cabeza de león, cabra y serpiente, capaz de respirar fuego y representar el caos.",
         respuesta: "quimera"
     },
     {
         id: 'R',
-        pregunta: "Bestia mitológica que es un ser que puede cambiar de forma y es conocido por su astucia.",
+        pregunta: "Con la R:  Demonio cambiante, que en forma humana se esconde y espera, hasta que alguien su odio despierte. Conocido por sus habilidades de manipulación.",
         respuesta: "rakshasa"
     },
     {
         id: 'S',
-        pregunta: "Bestia mitológica que es un ser que puede volar y tiene un cuerno en la frente.",
-        respuesta: "unicornio"
-    },
-    {
-        id: 'T',
-        pregunta: "Bestia mitológica que es un ser que vive en el agua y es conocido por su belleza.",
+        pregunta: "Con la S: Criatura marina de belleza encantadora que atrae a los navegantes hacia su perdición.",
         respuesta: "sirena"
     },
     {
+        id: 'T',
+        pregunta: "Con la T: Dragón eslavo, con tres cabezas que escupe llamas, en cuentos y leyendas Rusos su fuerza es la trama.",
+        respuesta: "tugarin"
+    },
+    {
         id: 'U',
-        pregunta: "Bestia mitológica que es un ser que puede volar y es conocido por su belleza.",
+        pregunta: "Con la U: Caballo blanco con un cuerno en la frente, símbolo de pureza y magia.",
         respuesta: "unicornio"
     },
     {
         id: 'V',
-        pregunta: "Bestia mitológica que es un ser que vive en el agua y es conocido por su belleza.",
+        pregunta: "Con la V: Ser nocturno que se alimenta de la sangre de los humanos y evita la luz del día.",
         respuesta: "vampiro"
     },
     {
         id: 'W',
-        pregunta: "Bestia mitológica que es un ser que puede volar y es conocido por su belleza.",
+        pregunta: "Con la W: Espíritu del frío y del hambre, del invierno extremo y en las noches te llama.",
         respuesta: "wendigo"
     },
     {
         id: 'X',
-        pregunta: "Bestia mitológica que es un ser que vive en el agua y es conocido por su belleza.",
-        respuesta: "xolotl"
+        pregunta: "Con la X: Perro sobrenatural mesoamericano, compañero de los muertos en su viaje al inframundo.",
+        respuesta: "xoloitzcuintle"
     },
     {
         id: 'Y',
-        pregunta: "Bestia mitológica que es un ser que puede volar y es conocido por su belleza.",
+        pregunta: "Con la Y: Monstruo de las nieves, enorme y peludo, habitante de las montañas heladas.",
         respuesta: "yeti"
     },
     {
         id: 'Z',
-        pregunta: "Bestia mitológica que es un ser que vive en el agua y es conocido por su belleza.",
-        respuesta: "zorro"
-    },
+        pregunta: "Con la letra Z: Soy una criatura tan vasta como una isla, los marineros me pisan creyendo que es tierra, pero, al sumergirme, los llevo a las profundidades del mar.",
+        respuesta: "zaratan"
+    }
 ];
 
+
 //preguntas que ya han sido contestadas. Si estan en 0 no han sido contestadas
-var estadoPreguntas = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var estadoPreguntas = Array(TOTAL_PREGUNTAS).fill(0);
 var cantidadAcertadas = 0;
 
 //variable que mantiene el num de pregunta actual
@@ -179,7 +180,7 @@ for (let i = 1; i <= TOTAL_PREGUNTAS; i++) {
 //Función que carga la pregunta
 function cargarPregunta(){
     numPreguntaActual++;
-  //controlo si he llegado al final de las preguntas, para comenzar de nuevo
+    //controlo si he llegado al final de las preguntas, para comenzar de nuevo
     if(numPreguntaActual>=TOTAL_PREGUNTAS){
         numPreguntaActual=0;
     }
@@ -221,29 +222,45 @@ respuesta.addEventListener("keyup", function(event) {
 
 //Función que controla la respuesta
 function controlarRespuesta(txtRespuesta){
-  //controlo si la respuesta es correcta
-    if(txtRespuesta == bd_juego[numPreguntaActual].respuesta){
-        //alert("Respuesta correcta")
+    // Eliminar espacios en blanco y convertir a minúsculas
+    txtRespuesta = txtRespuesta.trim().toLowerCase();
+    var respuestaCorrecta = bd_juego[numPreguntaActual].respuesta.toLowerCase(); // Convertir la respuesta correcta a minúsculas
+
+    // Obtener la tarjeta de notificación
+    var notificacion = document.getElementById("notificacion");
+    var mensajeNotificacion = document.getElementById("mensaje-notificacion");
+
+    // controlo si la respuesta es correcta
+    if (txtRespuesta === respuestaCorrecta) {
         cantidadAcertadas++;
 
-        //actualizo el estado de las pregunta actual a 1, indicando que ya esta respondida
+        // actualizo el estado de la pregunta actual a 1, indicando que ya está respondida
         estadoPreguntas[numPreguntaActual] = 1;
-        var letra =  bd_juego[numPreguntaActual].id;
+        var letra = bd_juego[numPreguntaActual].id;
         document.getElementById(letra).classList.remove("pregunta-actual");
         document.getElementById(letra).classList.add("bien-respondida");
+        
+        mensajeNotificacion.textContent = "¡Respuesta correcta!";
+        notificacion.classList.remove("oculto");
+        notificacion.classList.add("correcta");
+    } else {
+        // actualizo el estado de la pregunta actual a 1, indicando que ya está respondida
+        estadoPreguntas[numPreguntaActual] = 1;
+        var letra = bd_juego[numPreguntaActual].id;
+        document.getElementById(letra).classList.remove("pregunta-actual");
+        document.getElementById(letra).classList.add("mal-respondida");
+        
+        mensajeNotificacion.textContent = "Respuesta incorrecta. La respuesta correcta era: " + bd_juego[numPreguntaActual].respuesta;
+        notificacion.classList.remove("oculto");
+        notificacion.classList.add("incorrecta");
+    }
+    
+    // Mostrar la notificación durante 5 segundos y luego ocultarla
+    setTimeout(() => {
+        notificacion.classList.add("oculto");
+    }, 5000); // 5 segundos
 
-        }else{
-            //alert("respuesta incorrecta")
-            //actualizo el estado de las pregunta actual a 1, indicando que ya esta respondida
-            estadoPreguntas[numPreguntaActual] = 1;
-            var letra =  bd_juego[numPreguntaActual].id;
-            //quito l clase del estilo de pregunta actual
-            document.getElementById(letra).classList.remove("pregunta-actual");
-            //agrego la clase del estilo de pregunta mal respondida
-            document.getElementById(letra).classList.add("mal-respondida");
-
-            }
-    respuesta.value="";
+    respuesta.value = "";
     cargarPregunta();
 }
 
@@ -278,7 +295,8 @@ function largarTiempo(){
 //muestro la pantlla final
 function mostrarPantallaFinal(){
     document.getElementById("acertadas").textContent = cantidadAcertadas;
-    document.getElementById("score").textContent = (cantidadAcertadas*100)/10 + "% de acierto";
+    var porcentajeCorrectas = (cantidadAcertadas * 100) / TOTAL_PREGUNTAS; // Calcular el porcentaje de respuestas correctas
+    document.getElementById("score").textContent = porcentajeCorrectas.toFixed(2) + "% de acierto"; // Mostrar el porcentaje con dos decimales
     document.getElementById("pantalla-juego").style.display =  "none";
     document.getElementById("pantalla-final").style.display =  "block";
 }
@@ -290,7 +308,7 @@ recomenzar.addEventListener("click", function(event) {
     timeLeft = TIEMPO_DEL_JUEGO;
     timer.innerText = timeLeft;
     cantidadAcertadas = 0;
-    estadoPreguntas = [0,0,0,0,0,0,0,0,0,0];
+    estadoPreguntas = Array(TOTAL_PREGUNTAS).fill(0);
 
   //quito las clases de los circulos
     var circulos = document.getElementsByClassName("circle");
