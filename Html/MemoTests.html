@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Juego de Memoria </title>
+    <link rel="stylesheet" href="/Css/MemoTests.Css">
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <section class="section1">
+            
+            <h1> Tests de Memoria </h1>
+            
+            <table>
+                <tr> <button id="0" onclick="uncover(0)"> </button> </tr>
+                <tr> <button id="1" onclick="uncover(1)"> </button> </tr>
+                <tr> <button id="2" onclick="uncover(2)"> </button> </tr>
+                <tr> <button id="3" onclick="uncover(3)"> </button> </tr>
+            </table>
+
+            <table>
+                <tr> <button id="4" onclick="uncover(4)"> </button> </tr>
+                <tr> <button id="5" onclick="uncover(5)"> </button> </tr>
+                <tr> <button id="6" onclick="uncover(6)"> </button> </tr>
+                <tr> <button id="7" onclick="uncover(7)"> </button> </tr>
+            </table>
+
+            <table>
+                <tr> <button id="8" onclick="uncover(8)"> </button> </tr>
+                <tr> <button id="9" onclick="uncover(9)"> </button> </tr>
+                <tr> <button id="10" onclick="uncover(10)"> </button> </tr>
+                <tr> <button id="11" onclick="uncover(11)"> </button> </tr>
+            </table>
+
+            <table>
+                <tr> <button id="12" onclick="uncover(12)" > </button> </tr>
+                <tr> <button id="13" onclick="uncover(13)" > </button> </tr>
+                <tr> <button id="14" onclick="uncover(14)" > </button> </tr>
+                <tr> <button id="15" onclick="uncover(15)" > </button> </tr>
+            </table>
+        </section>
+        
+        <section class="section2">
+            <h2 id="Successes" class="statistics"> Aciertos: 0 </h2>
+            <h2 id="RemainingTime" class="statistics"> Tiempo: 30 seg </h2>
+            <h2 id="Movements" class="statistics"> Movimientos: 0 </h2>
+        </section>
+
+    </main>
+    <script src="/Js/MemoTests.js"></script>
+</body>
+</html>
