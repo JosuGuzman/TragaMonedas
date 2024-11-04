@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ping Pong </title>
+
+    <style>
+    /* Estilos CSS para el juego de Ping Pong */
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        background: black;
+        color: white;
+    }
+
+    .escenario {
+        width: 800px;
+        height: 600px;
+        margin: calc(50vh - 300px) auto 0;
+        border: 6px solid white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .marcador {
+        font-family: monospace;
+        font-size: 150px;
+        text-align: center;
+        line-height: 1;
+        width: 200px;
+        position: absolute;
+        top: 40px;
+    }
+
+    .marcador1 {
+        left: 100px;
+    }
+
+    .marcador2 {
+        right: 100px;
+    }
+
+    .pala {
+        width: 14px;
+        height: 100px;
+        background: white;
+        position: absolute;
+        bottom: 50%;
+        transform: translate(-50%, 50%);
+    }
+
+    .pala1 {
+        left: 40px;
+    }
+
+    .pala2 {
+        left: 760px;
+    }
+
+    .red {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(50% - 3px);
+        border-width: 0px;
+        border-left: 6px dotted white;
+    }
+
+    .pelota {
+        background: white;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        bottom: 300px;
+        left: 400px;
+        transform: translate(-50%, 50%);
+        border-radius: 50%;
+    }
+
+    /* Estilos para las variaciones de escenario */
+    /* Estilo "florido" */
+    .escenario.florido {
+        background: rgb(105, 39, 65);
+        border-color: rgb(255, 103, 252);
+        border-radius: 16px;
+    }
+
+    .escenario.florido .pala {
+        background: rgb(255, 103, 252);
+        border-radius: 10px;
+    }
+
+    .escenario.florido .pelota {
+        background: rgb(255, 193, 86);
+        width: 50px;
+        height: 50px;
+    }
+
+    .escenario.florido .red {
+        border-color: rgb(151, 61, 97);
+        border-width: 5px;
+        border-style: solid;
+    }
+
+    .escenario.florido .marcador {
+        font-family: Georgia, Times, 'Times New Roman', serif;
+        color: #83f591;
+    }
+
+    /* Estilo "neon" */
+    .escenario.neon {
+        background: rgb(4, 1, 39);
+        border: 3px solid rgb(0, 242, 255);
+        box-shadow: cyan 0 0 10px, cyan 0 0 10px inset;
+        border-radius: 8px;
+    }
+
+    .escenario.neon .pala {
+        background: rgb(5, 255, 226);
+        border-radius: 10px;
+        box-shadow: cyan 0 0 10px;
+        width: 6px;
+    }
+
+    .escenario.neon .pelota {
+        background: rgb(255, 245, 109);
+        box-shadow: rgb(255, 225, 30) 0 0 10px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .escenario.neon .red {
+        border-color: rgb(255, 125, 246);
+    }
+
+    .escenario.neon .marcador {
+        font-family: "Futura", "Futura Std", Calibri, Verdana, Arial, 'Times New Roman', serif;
+        font-weight: 100;
+        color: rgb(255, 125, 246);
+        text-shadow: rgb(255, 36, 240) 0 0 10px;
+    }
+
+    /* Estilo "tecno" */
+    .escenario.tecno {
+        background: rgb(136, 142, 184);
+        border: 10px ridge rgb(53, 102, 157);
+    }
+
+    .escenario.tecno .pala {
+        background: linear-gradient(to right, white 10%, rgb(46, 59, 115) 50%, rgb(79, 124, 188) 90%);
+        box-shadow: rgb(73, 82, 133) 2px 2px 4px, rgba(255, 255, 255, 0.5) 0 0 2px 1px inset;
+        border-radius: 2px;
+        width: 8px;
+    }
+
+    .escenario.tecno .pelota {
+        background: white;
+        box-shadow: rgba(255, 255, 255, 0.5) -1px -1px 3px inset, rgb(90, 112, 163) -3px -3px 10px 2px inset, black 2px 2px 5px -2px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .escenario.tecno .red {
+        border-color: rgb(194, 205, 237);
+    }
+
+    .escenario.tecno .marcador {
+        font-family: "Futura", "Futura Std", Calibri, Verdana, Arial, 'Times New Roman', serif;
+        color: rgb(194, 205, 237);
+    }
+
+    /* Estilo para el mensaje de victoria */
+    .mensaje-victoria {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        font-size: 40px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .boton {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    </style>
+
+    <div class="escenario">
+        <div class="marcador marcador1">0</div>
+        <div class="marcador marcador2">0</div>
+
+        <div class="pala pala1"></div>
+        <div class="pala pala2"></div>
+
+        <div class="red"></div>
+        <div class="pelota"></div>
+
+        <div class="mensaje-victoria" id="mensajeVictoria">
+            <div id="textoVictoria"></div>
+            <button class="boton" id="revanchaBtn">Revancha</button>
+            <button class="boton" id="probarOtroBtn">Probar Otro</button>
+        </div>
+    </div>
+
+<script>
+    // OBJETOS:
+
+    class Bordes {
+        constructor(minX, maxX, minY, maxY) {
+            this.minX = minX;
+            this.maxX = maxX;
+            this.minY = minY;
+            this.maxY = maxY;
+        }
+    }
+
+    class ObjetoMovil {
+        constructor(bordesTablero, elem, vel) {
+            this.bordesTablero = bordesTablero;
+            this.vel = vel;
+            this.x = parseInt(getComputedStyle(elem).left);
+            this.y = parseInt(getComputedStyle(elem).bottom);
+            this.ancho = parseInt(getComputedStyle(elem).width);
+            this.alto = parseInt(getComputedStyle(elem).height);
+            this.elem = elem;
+        }
+
+        GetBordes() {
+            return new Bordes(this.x - this.ancho / 2, this.x + this.ancho / 2, this.y - this.alto / 2, this.y + this.alto / 2);
+        }
+
+        Resetear() {
+            this.ancho = parseInt(getComputedStyle(this.elem).width);
+            this.alto = parseInt(getComputedStyle(this.elem).height);
+        }
+    }
+
+    class Pelota extends ObjetoMovil {
+        constructor(bordesTablero, elem, vel, dirX, dirY, arrastre) {
+            super(bordesTablero, elem, vel);
+            this.dirX = dirX;
+            this.dirY = dirY;
+            this.arrastre = arrastre;
+        }
+
+        Mover() {
+            this.x += this.dirX * this.vel * deltaTime;
+            this.y += this.dirY * this.vel * deltaTime;
+            this.elem.style.left = this.x + "px";
+            this.elem.style.bottom = this.y + "px";
+            this.ComprobarRebote();
+        }
+
+        ComprobarRebote() {
+            if (this.y + this.alto / 2 > this.bordesTablero.maxY && this.dirY > 0) {
+                this.RebotarY();
+            } else if (this.y - this.alto / 2 < this.bordesTablero.minY && this.dirY < 0) {
+                this.RebotarY();
+            }
+        }
+
+        RebotarX(inerciaY) {
+            this.dirX = -this.dirX;
+            this.dirY += inerciaY * this.arrastre;
+        }
+
+        RebotarY() {
+            this.dirY = -this.dirY;
+        }
+
+        ComprobarGol() {
+            if (this.x - this.ancho / 2 < this.bordesTablero.minX) {
+                return 2;
+            } else if (this.x + this.ancho / 2 > this.bordesTablero.maxX) {
+                return 1;
+            }
+            return 0;
+        }
+
+        Resetear(vel, x, y, dirX, dirY) {
+            this.vel = vel;
+            this.x = x;
+            this.y = y;
+            this.dirX = dirX;
+            this.dirY = dirY;
+            super.Resetear();
+        }
+    }
+
+    class Pala extends ObjetoMovil {
+        constructor(bordesTablero, elem, vel, rozamiento, keyCodeArriba, keyCodeAbajo) {
+            super(bordesTablero, elem, vel);
+            this.moviendose = false;
+            this.velActual = 0;
+            this.rozamiento = rozamiento;
+            this.keyCodeArriba = keyCodeArriba;
+            this.keyCodeAbajo = keyCodeAbajo;
+            document.addEventListener("keydown", this.IniciarMovimiento.bind(this));
+            document.addEventListener("keyup", this.FinalizarMovimiento.bind(this));
+        }
+
+        IniciarMovimiento(evento) {
+            this.moviendose = true;
+            if (evento.key == this.keyCodeArriba) {
+                this.velActual = this.vel;
+            } else if (evento.key == this.keyCodeAbajo) {
+                this.velActual = -this.vel;
+            }
+        }
+
+        FinalizarMovimiento(evento) {
+            if (evento.key == this.keyCodeAbajo || evento.key == this.keyCodeArriba) {
+                this.moviendose = false;
+            }
+        }
+
+        Mover() {
+            this.y += this.velActual * deltaTime;
+            if (this.y + this.alto / 2 > this.bordesTablero.maxY) this.y = this.bordesTablero.maxY - this.alto / 2;
+            if (this.y - this.alto / 2 < this.bordesTablero.minY) this.y = this.alto / 2;
+            this.elem.style.bottom = this.y + "px";
+        }
+
+        Frenar() {
+            if (!this.moviendose) {
+                this.velActual /= this.rozamiento;
+                if (Math.abs(this.velActual) < 0.1) this.velActual = 0;
+            }
+        }
+
+        ComprobarColision(bordes2) {
+            var bordes1 = this.GetBordes();
+            return !(
+                bordes1.maxX < bordes2.minX ||
+                bordes1.minX > bordes2.maxX ||
+                bordes1.maxY < bordes2.minY ||
+                bordes1.minY > bordes2.maxY
+            );
+        }
+    }
+
+    class Marcador {
+        constructor(elem) {
+            this.elem = elem;
+            this.puntos = 0;
+        }
+
+        GanarPunto() {
+            this.puntos++;
+            this.elem.innerHTML = "" + this.puntos;
+        }
+    }
+
+    // JUEGO
+    var escenarioElem = document.querySelector(".escenario");
+    var estilos = ["tecno", "florido", "neon"];
+    var bordesTablero = new Bordes(0, 800, 0, 600);
+    var dir = Math.random() * 2 * Math.PI;
+    var pelota = new Pelota(bordesTablero, document.querySelector(".pelota"), 300, Math.cos(dir), Math.sin(dir), 0.1);
+    var pala1 = new Pala(bordesTablero, document.querySelector(".pala1"), 300, 1.15, "a", "z");
+    var pala2 = new Pala(bordesTablero, document.querySelector(".pala2"), 300, 1.15, "ArrowUp", "ArrowDown");
+    var marcador1 = new Marcador(document.querySelector(".marcador1"));
+    var marcador2 = new Marcador(document.querySelector(".marcador2"));
+
+    var juegoActivo = true;
+
+    function Update() {
+        if (juegoActivo) {
+            pelota.Mover();
+            MoverPalas();
+            ComprobarPalazo();
+            ComprobarGol();
+        }
+    }
+
+    function MoverPalas() {
+        pala1.Frenar();
+        pala2.Frenar();
+        pala1.Mover();
+        pala2.Mover();
+    }
+
+    function ComprobarPalazo() {
+        if (pala1.ComprobarColision(pelota.GetBordes())) {
+            if (pelota.dirX < 0) pelota.RebotarX(pala1.velActual * deltaTime);
+        } else if (pala2.ComprobarColision(pelota.GetBordes())) {
+            if (pelota.dirX > 0) pelota.RebotarX(pala2.velActual * deltaTime);
+        }
+    }
+
+    function ComprobarGol() {
+        var resultado = pelota.ComprobarGol();
+        if (resultado != 0) {
+            if (resultado == 1) {
+                marcador1.GanarPunto();
+            } else if (resultado == 2) {
+                marcador2.GanarPunto();
+            }
+            if (marcador1.puntos >= 10) {
+                DetenerJuego("Jugador 1");
+            } else if (marcador2.puntos >= 10) {
+                DetenerJuego("Jugador 2");
+            }
+            Reiniciar();
+        }
+    }
+
+    function DetenerJuego(jugador) {
+        juegoActivo = false;
+        var mensajeVictoria = document.getElementById("mensajeVictoria");
+        var textoVictoria = document.getElementById("textoVictoria");
+        textoVictoria.innerHTML = "¡Ganó el " + jugador + "!";
+        mensajeVictoria.style.display = "block";
+    }
+
+    function Reiniciar() {
+        escenarioElem.className = "escenario " + estilos[Math.floor(Math.random() * estilos.length)];
+        pala1.Resetear();
+        pala2.Resetear();
+        var dir = Math.random() * 2 * Math.PI;
+        pelota.Resetear(Math.random() * 150 + 250, 400, 300, Math.cos(dir), Math.sin(dir));
+    }
+
+    // LOOP:
+    var time = Date.now();
+    var deltaTime = 0;
+
+    function Tick() {
+        deltaTime = (Date.now() - time) / 1000; // deltaTime en segundos
+        time = Date.now();
+        Update();
+        requestAnimationFrame(Tick);
+    }
+
+    // Arrancar juego:
+    requestAnimationFrame(Tick);
+
+    // Botones de la victoria
+    document.getElementById("revanchaBtn").addEventListener("click", function() {
+        location.reload(); // Reinicia el juego
+    });
+
+    document.getElementById("probarOtroBtn").addEventListener("click", function() {
+        alert("Funcionalidad para probar otro juego no implementada."); // Placeholder para otra funcionalidad
+    });
+</script>
+</body>
+</html>

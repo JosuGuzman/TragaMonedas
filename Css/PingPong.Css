@@ -1,0 +1,205 @@
+/* Código CSS para el juego de Ping Pong */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: black;
+    color: white;
+}
+
+.escenario {
+    width: 800px;
+    height: 600px;
+    margin: calc(50vh - 300px) auto 0;
+    border: 6px solid white;
+    position: relative;
+    overflow: hidden;
+}
+
+.marcador {
+    font-family: monospace;
+    font-size: 150px;
+    text-align: center;
+    line-height: 1;
+    width: 200px;
+    position: absolute;
+    top: 40px;
+}
+.marcador1 {
+    left: 100px;
+}
+.marcador2 {
+    right: 100px;
+}
+.pala {
+    width: 14px;
+    height: 100px;
+    background: white;
+    position: absolute;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+}
+.pala1 {
+    left: 40px;
+}
+.pala2 {
+    left: 760px;
+}
+.red {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 3px);
+    border-width: 0px;
+    border-left: 6px dotted white;
+}
+.pelota {
+    background: white;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    bottom: 300px;
+    left: 400px;
+    transform: translate(-50%, 50%);
+    border-radius: 50%;
+}
+
+/* Estilos para las variaciones de escenario */
+.escenario.florido {
+    background: rgb(105, 39, 65);
+    border-color: rgb(255, 103, 252);
+    border-radius: 16px;
+}
+.escenario.florido .pala {
+    background: rgb(255, 103, 252);
+    border-radius: 10px;
+}
+.escenario.florido .pelota {
+    background: rgb(255, 193, 86);
+    width: 50px;
+    height: 50px;
+}
+.escenario.florido .red {
+    border-color: rgb(151, 61, 97);
+    border-width: 5px;
+    border-style: solid;
+}
+.escenario.florido .marcador {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    color: #83f591;
+}
+
+/* Otros estilos para las variaciones neon, tecno y loco */
+.escenario.neon {
+    background: rgb(4, 1, 39);
+    border: 3px solid rgb(0, 242, 255);
+    box-shadow: cyan 0 0 10px, cyan 0 0 10px inset;
+    border-radius: 8px;
+}
+.escenario.neon .pala {
+    background: rgb(5, 255, 226);
+    border-radius: 10px;
+    box-shadow: cyan 0 0 10px;
+    width: 6px;
+}
+.escenario.neon .pelota {
+    background: rgb(255, 245, 109);
+    box-shadow: rgb(255, 225, 30) 0 0 10px;
+    width: 16px;
+    height: 16px;
+}
+.escenario.neon .red {
+    border-color: rgb(255, 125, 246);
+}
+.escenario.neon .marcador {
+    font-family: "Futura", "Futura Std", Calibri, Verdana, Arial, 'Times New Roman', serif;
+    font-weight: 100;
+    color: rgb(255, 125, 246);
+    text-shadow: rgb(255, 36, 240) 0 0 10px;
+}
+
+.escenario.tecno {
+    background: rgb(136, 142, 184);
+    border: 10px ridge rgb(53, 102, 157);
+}
+.escenario.tecno .pala {
+    background: linear-gradient(to right, white 10%, rgb(46, 59, 115) 50%, rgb(79, 124, 188) 90%);
+    box-shadow: rgb(73, 82, 133) 2px 2px 4px, rgba(255, 255, 255, 0.5) 0 0 2px 1px inset;
+    border-radius: 2px;
+    width: 8px;
+}
+.escenario.tecno .pelota {
+    background: white;
+    box-shadow: rgba(255, 255, 255, 0.5) -1px -1px 3px inset, rgb(90, 112, 163) -3px -3px 10px 2px inset, black 2px 2px 5px -2px;
+    width: 20px;
+    height: 20px;
+}
+.escenario.tecno .red {
+    border-color: rgb(194, 205, 237);
+}
+.escenario.tecno .marcador {
+    font-family: "Futura", "Futura Std", Calibri, Verdana, Arial, 'Times New Roman', serif;
+    color: rgb(194, 205, 237);
+}
+
+.escenario.loco {
+    animation: arcoiris 2s linear infinite, escalar-borde 2s ease-out infinite alternate-reverse;
+    border: 10px solid currentColor;
+    background: rgb(255, 151, 40);
+}
+.escenario.loco .pala {
+    animation: arcoiris 2s linear infinite;
+    background: currentColor;
+    border-radius: 2px;
+    width: 22px;
+}
+.escenario.loco .pelota {
+    animation: arcoiris 2s linear infinite;
+    background: currentColor;
+    width: 100px;
+    height: 100px;
+}
+.escenario.loco .red {
+    border-color: yellow;
+    border-style: dashed;
+}
+.escenario.loco .marcador {
+    font-family: "Comic Sans MS", Arial, 'Times New Roman', serif;
+    color: yellow;
+}
+
+@keyframes escalar-borde {
+    0% {
+        border-width: 8px;
+    }
+    100% {
+        border-width: 18px;
+    }
+}
+
+@keyframes arcoiris {
+    0% {
+        color: rgb(255, 58, 19);
+    }
+    17% {
+        color: yellow;
+    }
+    34% {
+        color: rgb(0, 255, 0);
+    }
+    50% {
+        color: cyan;
+    }
+    64% {
+        color: rgb(69, 45, 255);
+    }
+    83% {
+        color: rgb(255, 19, 239);
+    }
+    100% {
+        color: red;
+    }
+}
+

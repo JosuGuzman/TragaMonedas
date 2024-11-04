@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tragamonedas</title>
+    <link rel="stylesheet" href="/Css/TragaMonedas.Css">
+</head>
+<body>
+    
+    <div class="slots">
+        <div class="reel" id="reel1"></div>
+        <div class="reel" id="reel2"></div>
+        <div class="reel" id="reel3"></div>
+        <p>Valor inicial: <span id="monto">1500</span></p>
+        <p>Costo por tirada: 150</p>
+    </div>
+    
+    <div id="controls">
+        <button onclick="startGame()">Empezar</button>
+        <button onclick="stopReel(0)">Parar Carrete 1</button>
+        <button onclick="stopReel(1)">Parar Carrete 2</button>
+        <button onclick="stopReel(2)">Parar Carrete 3</button>
+    </div>
+    
+    <div id="debug" class="debug"></div>
+
+    <script src="/Js/TragaMonedas.js"></script>
+</body>
+</html>
